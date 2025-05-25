@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "author": "Ana Cornachi",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": -150.4,
+      "left": -37.6,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -72.85,
+      "left": 76.8,
+      "attrs": { "value": "10000" }
+    },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -105.3, "left": 157.8, "attrs": {} },
+    { "type": "wokwi-gas-sensor", "id": "gas1", "top": 50.7, "left": -175.4, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "microfone", "top": 161.9, "left": -86.6, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "current", "top": -68.5, "left": -86.6, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pressure", "top": -68.5, "left": -173, "attrs": {} },
+    { "type": "wokwi-pir-motion-sensor", "id": "pir1", "top": 61.6, "left": 127.02, "attrs": {} },
+    { "type": "wokwi-mpu6050", "id": "imu1", "top": -149.78, "left": -160.88, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "r1:1", "esp:GND.2", "black", [ "v0" ] ],
+    [ "ldr1:VCC", "esp:3V3", "red", [ "h0" ] ],
+    [ "ldr1:GND", "r1:2", "black", [ "h0" ] ],
+    [ "ldr1:AO", "esp:34", "green", [ "h0" ] ],
+    [ "dht1:SDA", "esp:15", "green", [ "v0" ] ],
+    [ "dht1:GND", "esp:GND.2", "black", [ "v0" ] ],
+    [ "gas1:VCC", "esp:5V", "red", [ "h19.2", "v-0.9" ] ],
+    [ "dht1:VCC", "esp:5V", "red", [ "v0" ] ],
+    [ "gas1:GND", "esp:GND.1", "black", [ "h0" ] ],
+    [ "gas1:AOUT", "esp:35", "green", [ "h0" ] ],
+    [ "microfone:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "microfone:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "microfone:SIG", "esp:32", "green", [ "v0" ] ],
+    [ "current:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "current:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "esp:23", "current:SIG", "green", [ "h0" ] ],
+    [ "pressure:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "esp:26", "pressure:SIG", "green", [ "h0" ] ],
+    [ "pressure:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "pir1:GND", "esp:GND.3", "black", [ "v0" ] ],
+    [ "pir1:VCC", "esp:5V", "red", [ "v0" ] ],
+    [ "pir1:OUT", "esp:33", "green", [ "v0" ] ],
+    [ "imu1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "imu1:GND", "esp:GND.2", "black", [ "v0" ] ],
+    [ "imu1:SCL", "esp:22", "green", [ "v0" ] ],
+    [ "imu1:SDA", "esp:21", "green", [ "v144", "h240.08" ] ]
+  ],
+  "dependencies": {}
+}
