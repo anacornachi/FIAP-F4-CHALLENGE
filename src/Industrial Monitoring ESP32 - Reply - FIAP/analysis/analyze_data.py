@@ -1,9 +1,23 @@
+"""
+Script de análise exploratória para sensores industriais simulados.
+
+Este script:
+- Lê os dados coletados do ESP32 e salvos em 'dados.csv'
+- Gera três gráficos com matplotlib:
+    1. Temperatura e Umidade
+    2. Gás e Vibração
+    3. Corrente e Pressão
+
+As imagens geradas são salvas em arquivos PNG para documentação e análise visual.
+"""
+
 import pandas as pd
 import matplotlib.pyplot as plt
 
 def main():
     print("🔍 Lendo o arquivo de dados...")
 
+     # Tenta abrir o arquivo CSV com os dados exportados do ESP32
     try:
         df = pd.read_csv("dados.csv")
     except FileNotFoundError:
@@ -54,5 +68,6 @@ def main():
 
     print("✅ Análise concluída.")
 
+# Executa a função principal apenas se o script for chamado diretamente
 if __name__ == "__main__":
     main()
