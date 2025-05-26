@@ -15,7 +15,7 @@ DHT dht(DHTPIN, DHTTYPE);
 #define LDR_PIN 34
 #define GAS_PIN 35
 #define MIC_PIN 32
-#define CURRENT_PIN 23
+#define CURRENT_PIN 25
 #define PRESSURE_PIN 26
 
 // MPU6050
@@ -44,18 +44,20 @@ void loop() {
   int pressure = analogRead(PRESSURE_PIN);
 
   bool motionDetected = digitalRead(PIR_PIN);
-  float vibration = mpu.getAccX(); // you can also use getAccY/Z for more data
+  float vibration = mpu.getAccX(); 
 
   Serial.println("======= SENSOR READINGS =======");
-  Serial.print("Temperature: "); Serial.print(temperature); Serial.println(" °C");
-  Serial.print("Humidity: "); Serial.print(humidity); Serial.println(" %");
-  Serial.print("Light (LDR): "); Serial.println(light);
-  Serial.print("Gas Level (MQ2): "); Serial.println(gasLevel);
-  Serial.print("Microphone (simulated): "); Serial.println(microphone);
-  Serial.print("Current (simulated): "); Serial.println(current);
-  Serial.print("Pressure (simulated): "); Serial.println(pressure);
-  Serial.print("Motion Detected: "); Serial.println(motionDetected ? "YES" : "NO");
-  Serial.print("Vibration (MPU6050): "); Serial.println(vibration);
+  Serial.println("temperature,humidity,light,gasLevel,microphone,current,pressure,motion,vibration");
+
+  Serial.print(temperature); Serial.print(",");
+  Serial.print(humidity); Serial.print(",");
+  Serial.print(light); Serial.print(",");
+  Serial.print(gasLevel); Serial.print(",");
+  Serial.print(microphone); Serial.print(",");
+  Serial.print(current); Serial.print(",");
+  Serial.print(pressure); Serial.print(",");
+  Serial.print(motionDetected); Serial.print(",");
+  Serial.println(vibration);
   Serial.println("================================\n");
 
   delay(2000);

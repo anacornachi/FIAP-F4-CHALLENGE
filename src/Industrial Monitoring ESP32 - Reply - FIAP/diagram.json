@@ -44,7 +44,7 @@
     [ "microfone:SIG", "esp:32", "green", [ "v0" ] ],
     [ "current:GND", "esp:GND.1", "black", [ "v0" ] ],
     [ "current:VCC", "esp:3V3", "red", [ "v0" ] ],
-    [ "esp:23", "current:SIG", "green", [ "h0" ] ],
+    [ "esp:25", "current:SIG", "green", [ "h0" ] ],
     [ "pressure:VCC", "esp:3V3", "red", [ "v0" ] ],
     [ "esp:26", "pressure:SIG", "green", [ "h0" ] ],
     [ "pressure:GND", "esp:GND.1", "black", [ "v0" ] ],
