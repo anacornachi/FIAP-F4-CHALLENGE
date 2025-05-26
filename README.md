@@ -186,6 +186,7 @@ Imagem criada a partir dos dados armazenados em analysis/dados.csv:
 - Baixar dependencias, compilar e executar com PlatformIO
 
 ```bash
+cd src/Industrial\ Monitoring\ ESP32\ -\ Reply\ -\ FIAP
 pio pkg install
 pio run
 ```
